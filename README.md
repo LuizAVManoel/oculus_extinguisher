@@ -5,12 +5,12 @@ This project aims to detect faces on input images and crop it away from the back
 
 Input image
 
-![01](/images/01-example-original.png =500x)
+![01](/images/01-example-original.png)
 
 Face detection:
 
-![02](/images/02-example-facedetection.png =500x)
+![02](/images/02-example-facedetection.png)
 
 Face crop:
 
-![02](/images/03-example-facecrop.png =500x)
+![02](/images/03-example-facecrop.png)
