@@ -1,16 +1,12 @@
-# Facial Detection and Cropping
-This project aims to detect faces on input images and crop it away from the background.
+# Oculus Extinguisher
+The aim of the project is to "erase" the glasses of photos from people's faces with Inpainting using search of texture information. This process is important because it can help with the facial recognition problem.
 
 ### Example:
 
 Input image
 
-![01](/images/01-example-original.png)
+![01](/images/01-oculos.png)
 
-Face detection:
+Aim result:
 
-![02](/images/02-example-facedetection.png)
-
-Face crop:
-
-![02](/images/03-example-facecrop.png)
+![02](/images/02-oculos.png)
