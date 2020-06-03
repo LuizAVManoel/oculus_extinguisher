@@ -17,11 +17,8 @@ Inpainting; Image Description; Texture; Faces.
 ---
 
 ### Example:
- <p align="center">
  
 | Input Image | Aim Result |
 |:--:|:--:|
 | <img src="/images/01-oculos.png" align="center" height="200" > | <img src="/images/02-oculos.png" align="center" height="200" > |
 |<img src="/images/03-oculos.png" align="center" height="200" >| <img src="/images/04-oculos.png" align="center" height="200" >|
-
-</p>
