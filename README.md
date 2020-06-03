@@ -9,6 +9,7 @@
 
 
 **Abstract:**
+
 The aim of this project is to "erase" the glasses of photos by filling removed pixels from people's faces. This technique is known as Inpainting and ist's going to be done by using search of texture information through image description. This process might help with facial recognition problems.
 
 **Keywords:**
