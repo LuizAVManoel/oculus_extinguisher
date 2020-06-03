@@ -2,8 +2,8 @@
  SCC5830: Image processing, first semester of 2020 at University of São Paulo (USP)
 
 **Students:**
-* Amanda Carrijo Viana Figur
-* Luiz Augusto Vieira Manoel
+* Amanda Carrijo Viana Figur (8937736)
+* Luiz Augusto Vieira Manoel (8937308)
 
 ---
 
