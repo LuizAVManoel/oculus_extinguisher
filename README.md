@@ -47,7 +47,7 @@ Inpainting; Image Description; Texture; Faces.
 
 <br/>
 
-<li>After the inpainting algorithm is implemented, we are going to use a simple frontal portrait of a person wearing eyeglasses and try to implement an auxiliary algorithm, in order to extract a mask containing only the eyeglasses region on any input image.</li>
+<li>After the inpainting algorithm is implemented, we are going to use a simple frontal portrait of a person wearing eyeglasses and try to implement an auxiliary algorithm. This algorithm goal is to extract a mask containing only the eyeglasses region on any input image.</li>
 
 <br/>
 
