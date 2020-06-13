@@ -50,8 +50,6 @@ The algorithm will be implemented in `Python 3.8` using the pseudocode provided 
 | <img src="/images/01-fidel-grayscale.png" height="290" /> | <img src="/images/02-fidel-grayscale.png" height="290" /> |
 |:--:|:--:|
 | The control image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
- 
-<br/>
 
 <li>
     Once the algorithm is sucessfully implemented on a grayscale image we'll apply the same method for each RGB channel of a collored image.
@@ -73,8 +71,6 @@ The algorithm will be implemented in `Python 3.8` using the pseudocode provided 
 | <img src="/images/05-angela-grayscale.png" height="290" /> |
 |:--:|
 | The original image (with eyeglasses).<br/>Source: <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) |
-
-<br/>
 
 <li> Then we'll apply the inpainting algorithm on the masked and colored image (to be obtained).</li>
 
