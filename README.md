@@ -33,7 +33,6 @@ We will use an Image Inpainting Technique Based on the **Fast Marching Method**.
 
 The algorithm will be implemented in `Python 3.8` using the pseudocode provided on <a title="Article" href="https://www.researchgate.net/publication/238183352_An_Image_Inpainting_Technique_Based_on_the_Fast_Marching_Method" target="_blank" rel="noopener">the article</a> "An Image Inpainting Technique Based on the Fast Marching Method", by Alexandru Telea at the Eindhoven University of Technology, DOI: 10.1080/10867651.2004.10487596.
 
-<br/>
 
 ### The steps needed
 
@@ -80,8 +79,6 @@ The algorithm will be implemented in `Python 3.8` using the pseudocode provided 
 <li> Then we'll apply the inpainting algorithm on the masked and colored image (to be obtained).</li>
 
 </ol>
-
-<br/>
 
 ### Input details
 <p> On the table bellow we show the details of each image we are going to use on this project. We altered them in order to satisfy our needs.</p>
