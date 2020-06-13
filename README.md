@@ -37,9 +37,9 @@ the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 
 ## Input images
 
-<p>An image that is going to be inpainted requires a mask. Since the objective of this project is to inpaint an image, we decided to go through the following steps:</p>
+<p>An image that is going to be inpainted requires a mask. Based on the article, we decided to divide our work on the following steps:</p>
 <ol>
-<li>We are going to start with a simple frontal portrait and artificially add an eyeglasses mask to it. It's going to be our control image in order to inplement the inpainting algorithm;</li>
+<li> It's going to be our control image in order to inplement the inpainting algorithm;</li>
 
 <br/>
 
