@@ -38,7 +38,9 @@ The algorithm will be implemented in `Python 3.8` using the pseudocode provided 
 
 <p>An image that is going to be inpainted requires a mask.</p>
 
-<p> We are going to start with a simple frontal portrait and artificially add an eyeglasses mask to it. The original image (without eyeglasses) will work as a reference after the algorithm is implemented on the masked (with eyeglasses) image. Based on the article, we decided to go through the following steps: </p>
+<p> We are going to start with a simple frontal portrait and artificially add an eyeglasses mask to it. The original image will work as a reference after the algorithm is implemented on the masked image.</p>
+ 
+<p> Based on the article, we decided to go through the following steps: </p>
 
 <ol>
 <li>
@@ -49,7 +51,7 @@ The algorithm will be implemented in `Python 3.8` using the pseudocode provided 
 
 | <img src="/images/01-fidel-grayscale.png" height="290" /> | <img src="/images/02-fidel-grayscale.png" height="290" /> |
 |:--:|:--:|
-| The control image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
+| The original image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
 
 <li>
     Once the algorithm is sucessfully implemented on a grayscale image we'll apply the same method for each RGB channel of a collored image.
@@ -88,4 +90,4 @@ The algorithm will be implemented in `Python 3.8` using the pseudocode provided 
 | 05-angela-grayscale | .PNG | 436 x 458 | grayscale | 8 bit |
 | 06-angela-RGB | .PNG | 436 x 458 | RGB | 8 bit |
 
-The originals <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Angela Davis</a> and <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Fidel Castro</a> images can be accessed on Wikimedia under a Creative Commons license.
+The originals <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Angela Davis</a> and <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Fidel Castro</a> images can be accessed on Wikimedia and lie under a Creative Commons license.
