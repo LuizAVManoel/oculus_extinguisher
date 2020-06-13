@@ -37,26 +37,54 @@ the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 
 ## Input images
 
-<p>An image that is going to be inpainted requires a mask. Based on the article, we decided to divide our work on the following steps:</p>
+<p>An image that is going to be inpainted requires a mask.</p>
+
+<p>We are going to start with a simple frontal portrait and artificially add an eyeglasses mask to it. The original image (without eyeglasses) will work as a reference after the algorithm is implemented on the masked (with eyeglasses) image. Based on the article, we decided to go through the following steps:
+
 <ol>
-<li> It's going to be our control image in order to inplement the inpainting algorithm;</li>
+<li>
+    We'll implement the inpaiting algorithm on a grayscale image. 
+</li>
 
-<br/>
-
-| <img src="/images/fidel-01.png" height="290" /> | <img src="/images/fidel-02.png" height="290" /> |
+| <img src="/images/01-fidel-grayscale.png" height="290" /> | <img src="/images/02-fidel-grayscale.png" height="290" /> |
 |:--:|:--:|
-| The original image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> | The masked image. |
-
+| The control image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
 <br/>
+<li>
+    Once the algorithm is sucessfully implemented on a grayscale image we'll apply the same method for each RGB channel of a collored image.
+</li>
 
-<li>After the inpainting algorithm is implemented, we are going to use a simple frontal portrait of a person wearing eyeglasses and try to implement an auxiliary algorithm. This algorithm goal is to extract a mask containing only the eyeglasses region on any input image.</li>
+| <img src="/images/03-fidel-RGB.png" height="290" /> | <img src="/images/04-fidel-RGB.png" height="290" /> |
+|:--:|:--:|
+| The control image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
+</ol>
 
-<br/>
+<p> After the inpainting algorithm is sucessfully implemented, we are going to use a simple frontal portrait of a person wearing eyeglasses and try to implement an auxiliary algorithm.</p>
 
-| <img src="/images/angela-01.png" height="290" /> |
+<p>This algorithm goal is to extract the mask containing only the eyeglasses region on an input image. Then, our work will follow as bellow:</p>
+<ol>
+<li> We'll extract a mask from this image:</li>
+
+| <img src="/images/05-angela-grayscale.png" height="290" /> |
 |:--:|
 | The original image (with eyeglasses).<br/>Source: <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) |
+
+<br/>
+
+<li> Then we'll apply the inpainting algorithm on the masked image</li>
+
 </ol>
 <br/>
+
+<p> On the table bellow we show the details of each image we are going to use on this project:</p>
+
+| Image name | Image format | Dimensions | Color Model | Channel Size |
+|:--:|:--:|:--:|:--:|:--:|
+| 01-fidel-grayscale | .PNG | 436 x 458 | grayscale | 8 bit |
+| 02-fidel-grayscale | .PNG | 436 x 458 | grayscale | 8 bit |
+| 03-fidel-RGB | .PNG | 436 x 458 | RGB | 8 bit |
+| 04-fidel-RGB | .PNG | 436 x 458 | RGB | 8 bit |
+| 05-angela-grayscale | .PNG | 436 x 458 | grayscale | 8 bit |
+| 06-angela-RGB | .PNG | 436 x 458 | RGB | 8 bit |
 
 ## Methods and Material
