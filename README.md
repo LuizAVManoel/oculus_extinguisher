@@ -10,7 +10,7 @@
 
 **Abstract:**
 
-The aim of this project is to "erase" the glasses of photos by filling removed pixels from people's faces. This technique is known as Inpainting and ist's going to be done by using search of texture information through image description. This process might help with facial recognition problems.
+The aim of this project is to "erase" the eyeglasses of photos by filling removed pixels from people's faces. This technique is known as Inpainting and ist's going to be done by using search of texture information through image description. This process might help with facial recognition problems.
 
 **Keywords:**
 Inpainting; Image Description; Texture; Faces.
@@ -30,6 +30,8 @@ Inpainting; Image Description; Texture; Faces.
 
 ## Objective
 
+The aim of this project is to "erase" the eyeglasses of photos by filling removed pixels from people's faces. For this, we will use an Image Inpainting Technique Based on the Fast Marching Method. The idea is to replace the glasses estimating the image smoothness as a weighted average over a known image neighborhood of the pixel to inpaint. The algorithm will be implemented in python using the pseudocode provided in article "An Image Inpainting Technique Based on
+the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 
 <br/>
 
