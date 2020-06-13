@@ -21,8 +21,8 @@ Inpainting; Image Description; Texture; Faces.
  
 | Input Image | Aim Result |
 |:--:|:--:|
-| <img src="/images/01-oculos.png" align="center" height="200" > | <img src="/images/02-oculos.png" align="center" height="200" > |
-|<img src="/images/03-oculos.png" align="center" height="200" >| <img src="/images/04-oculos.png" align="center" height="200" >|
+| <img src="/images/00-oculos-1.png" align="center" height="200" > | <img src="/images/00-oculos-2.png" align="center" height="200" > |
+|<img src="/images/00-oculos-3.png" align="center" height="200" >| <img src="/images/00-oculos-4.png" align="center" height="200" >|
 
 > Images Source: aquired by the students
 
@@ -30,7 +30,11 @@ Inpainting; Image Description; Texture; Faces.
 
 ## Objective
 
-The aim of this project is to "erase" the eyeglasses of photos by filling removed pixels from people's faces. For this, we will use an Image Inpainting Technique Based on the Fast Marching Method. The idea is to replace the glasses estimating the image smoothness as a weighted average over a known image neighborhood of the pixel to inpaint. The algorithm will be implemented in python using the pseudocode provided in article "An Image Inpainting Technique Based on
+The aim of this project is to "erase" the eyeglasses of photos by filling removed pixels from people's faces.
+
+We will use an Image Inpainting Technique Based on the Fast Marching Method. The idea behind such method is to replace the eyeglasses estimating the image smoothness as a weighted average over a known neighborhood of the pixel to inpaint.
+
+The algorithm will be implemented in python using the pseudocode provided on the article "An Image Inpainting Technique Based on
 the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 
 <br/>
@@ -39,17 +43,21 @@ the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 
 <p>An image that is going to be inpainted requires a mask.</p>
 
-<p>We are going to start with a simple frontal portrait and artificially add an eyeglasses mask to it. The original image (without eyeglasses) will work as a reference after the algorithm is implemented on the masked (with eyeglasses) image. Based on the article, we decided to go through the following steps:
+<p> We are going to start with a simple frontal portrait and artificially add an eyeglasses mask to it. The original image (without eyeglasses) will work as a reference after the algorithm is implemented on the masked (with eyeglasses) image. Based on the article, we decided to go through the following steps: </p>
 
 <ol>
 <li>
     We'll implement the inpaiting algorithm on a grayscale image. 
 </li>
+ 
+
 
 | <img src="/images/01-fidel-grayscale.png" height="290" /> | <img src="/images/02-fidel-grayscale.png" height="290" /> |
 |:--:|:--:|
 | The control image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
+ 
 <br/>
+
 <li>
     Once the algorithm is sucessfully implemented on a grayscale image we'll apply the same method for each RGB channel of a collored image.
 </li>
@@ -58,6 +66,8 @@ the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 |:--:|:--:|
 | The control image (without<br/>eyeglasses). Source: <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) | The masked image. |
 </ol>
+
+<br/>
 
 <p> After the inpainting algorithm is sucessfully implemented, we are going to use a simple frontal portrait of a person wearing eyeglasses and try to implement an auxiliary algorithm.</p>
 
@@ -71,7 +81,7 @@ the Fast Marching Method" - Alexandru Telea, Eindhoven University of Technology.
 
 <br/>
 
-<li> Then we'll apply the inpainting algorithm on the masked image</li>
+<li> Then we'll apply the inpainting algorithm on the masked and colored image (to be obtained).</li>
 
 </ol>
 <br/>
