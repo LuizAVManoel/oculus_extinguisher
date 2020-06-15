@@ -59,7 +59,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 
 | <img src="/images/00-oculos-5.png" height="290" /> | <img src="/images/00-oculos-6.png" height="290" /> |
 |:--:|:--:|
-| The border of the image (red). | The reference region (blue). |
+| The border of the mask (red). | The reference region (blue). |
 > Images Source: acquired by the students (Illustrative)
 
 <li>
