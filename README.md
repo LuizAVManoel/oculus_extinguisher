@@ -44,7 +44,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 
 <ol>
 <li>
-    We'll input on the algorithm an image that is going to be inpainted and a mask. The black region of the mask represents the `KNOWN` pixels; The white region of the mask represents the `UNKNOWN` pixes, that are going to be inpainted.
+    We'll input on the algorithm an image that is going to be inpainted and a mask. The black region of the mask represents the KNOWN pixels; The white region of the mask represents the UNKNOWN pixes, that are going to be inpainted.
 </li>
  
 
@@ -66,14 +66,14 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
     The algorithm will fill the mask (white) region with with a mean value based on the pixels directions and the "distance" related to the border and the values on each RGB channel. This is the Fast Marching Method. Bellow we show an output example:
 </li>
 
-| <img src="/images/01-fidel-RGB.png" height="290" /> | <img src="/images/01-fidel-RGB-inpainted.png" height="290" /> |
-|:--:|:--:|
-| The original image (without<br/>eyeglasses) for reference. | The output of the algorithm<br/>(the inpainted image). |
+| <img src="/images/01-fidel-RGB.png" height="290" /> | <img src="/images/01-fidel-RGB-inpainted.png" height="290" /> | <img src="/images/02-fidel-RGB-oculus.png" height="290" /> |
+|:--:|:--:|:--:|
+| The original image (without<br/>eyeglasses) for reference. | The output of the algorithm<br/>(the inpainted image). | The input of the algorithm. |
 > Images Source: acquired by the students (Illustrative)
 
 </ol>
 
-###Further Steps
+### Further Steps
 
 <p> After the inpainting algorithm is sucessfully implemented, we are going to use a simple frontal portrait of a person wearing eyeglasses and try to implement an auxiliary algorithm.</p>
 
@@ -89,8 +89,10 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 
 </ol>
 
+
 ### Input details
-<p> On the table bellow we show the details of each image we are going to use as input on this project and also the output images we've already obtained. We altered the input images in order to satisfy our needs.</p>
+
+On the table bellow we show the details of each image we are going to use as input on this project and also the output images we've already obtained. The original <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Angela Davis</a> and <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Fidel Castro</a> images can be accessed on Wikimedia and lie under a Creative Commons license. We altered the input images in order to satisfy our needs.
 
 | Image name | Image format | Dimensions | Color Model | Channel Size | Description |
 |:--:|:--:|:--:|:--:|:--:|:--:|
@@ -101,5 +103,3 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 | 03-fidel-RGB-mask | .PNG | 436 x 458 | RGB | 8 bit | The thin eyeglasses mask |
 | 03-fidel-RGB-mask2 | .PNG | 436 x 458 | RGB | 8 bit | The thick eyeglasses mask |
 | 04-angela-RGB | .PNG | 436 x 458 | RGB | 8 bit | Angela Davis wearing eyeglasses |
-
-The original <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Angela Davis</a> and <a title="Fidel" href="https://commons.wikimedia.org/wiki/Fidel_Castro#/media/File:Fidel_Castro.jpg" target="_blank" rel="noopener">Fidel Castro</a> images can be accessed on Wikimedia and lie under a Creative Commons license.
