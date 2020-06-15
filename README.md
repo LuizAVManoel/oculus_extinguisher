@@ -69,7 +69,6 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 | <img src="/images/01-fidel-RGB.png" height="290" /> | <img src="/images/01-fidel-RGB-inpainted.png" height="290" /> | <img src="/images/02-fidel-RGB-oculus.png" height="290" /> |
 |:--:|:--:|:--:|
 | The original image (without<br/>eyeglasses) for reference. | The output of the algorithm<br/>(the inpainted image). | The input of the algorithm. |
-> Images Source: acquired by the students (Illustrative)
 
 </ol>
 
