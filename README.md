@@ -66,7 +66,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
     The algorithm will fill the mask (white) region with with a mean value based on the pixels directions and the "distance" related to the border and the values on each RGB channel. This is the Fast Marching Method. Bellow we show an output example:
 </li>
 
-| <img src="/images/01-fidel-RGB.png" height="290" /> | <img src="/images/01-fidel-RGB-inpainted.png" height="290" /> | <img src="/images/02-fidel-RGB-oculus.png" height="290" /> |
+| <img src="/images/01-fidel-RGB.png" height="290" /> | <img src="/images/01-fidel-RGB-inpainted2.png" height="290" /> | <img src="/images/02-fidel-RGB-oculus.png" height="290" /> |
 |:--:|:--:|:--:|
 | The original image (without<br/>eyeglasses) for reference. | The output of the algorithm<br/>(the inpainted image). | The input of the algorithm. |
 
