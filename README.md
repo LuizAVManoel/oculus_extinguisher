@@ -54,7 +54,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 | The  image (with eyeglasses)<br/> going to be inpainted. | The mask. |
 
 <li>
-    The algorithm will then find the mask border and then find a region acordingly to the given radius that's going to work as reference for the inpainting.
+    The algorithm will then find the mask border and then find a region acordingly to the given radius that's going to work as reference for the inpainting. The images bellow are just an ILLUSTRATION.
 </li>
 
 | <img src="/images/00-oculos-5.png" height="290" /> | <img src="/images/00-oculos-6.png" height="290" /> |
