@@ -16,27 +16,10 @@ import imageio as img
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage import morphology as morp  # implements the morphology functions
-#import cv2  # for face detection
+from plot_compare import plot_compare
 import sys
 
-
 sys.setrecursionlimit(1000000)  # allow 'region_growing_average' algorithm to run
-
-
-# Function that plots two images side by side. r = reference, m = modified
-def plot_compare(r, m):
-    plt.figure(figsize=(12, 12))
-
-    # defines a panel to show the images side by side
-    plt.subplot(121)  # panel with 1 row, 2 columns, to show the image at the first (1st) position
-    plt.imshow(r, cmap="gray")
-    plt.axis('off')  # remove axis with numbers
-
-    plt.subplot(122)  # panel with 1 row, 2 columns, to show the image at the second (2nd) position
-    plt.imshow(m, cmap="gray")
-    plt.axis('off')
-
-    plt.show()
 
 
 # Normalizes an image r (turns max intensity to 255 and min intensity to 0)
@@ -128,13 +111,60 @@ def region_growing_average(img, img_t, tolerance, seed):
 def inversion(input_img):
     return (255 - input_img.astype(np.float32)).astype(np.uint8)
 
+def histogram(A, no_levels):
+    # gets the size of the input matrix
+    N, M = A.shape
+    # creates an empty histogram with size proportional to the number of graylevels 
+    hist = np.zeros(no_levels).astype(int)
+
+    # computes for all levels in the range
+    for i in range(no_levels):
+        # the np.where() function returns the indices for all coordinates 
+        # in some array matching the condition. In this case, all pixels
+        # that have value 'i'
+        pixels_value_i = np.where(A == i)
+        
+        #print(pixels_value_i)  # uncomment to print array of coordinates
+        
+        # by counting how many coordinates the np.where function returned, 
+        # we can assign it at the respective histogram bin
+        # this is done by getting the size of the vector of coordinates
+        hist[i] = pixels_value_i[0].shape[0]
+            
+    return(hist)
 
 
+def define_threshold(input_img, seed):
+    x = seed[0]
+    y = seed[1]
+    oculus_region = input_img[x - 5: x + 5, y - 5: y + 5]
+    plot_compare(input_img,oculus_region)
+
+    hist = histogram(oculus_region, 256)
+    
+    min_i = -1
+    for i in range(0, len(hist)):
+        if hist[i] != 0:
+            min_i = i
+            break
+
+    mean_i = (256 - min_i) // 2
+
+    max_hist = 0
+    max_i = -1
+    for i in range(min_i + mean_i, 200):
+        if hist[i] > max_hist:
+            max_hist = hist[i]
+            max_i = i
+
+
+    return max_i - 1
+    
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                    THE MAIN FUNCTION                    #
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-def mask_generator(filename,seed):
+def mask_generator(filename, seed):
     # Starts program with an RGB image and converts it to grayscale
     original_image = img.imread(filename)
     grayscale_image = 0.2125 * original_image[:,:,0] + 0.7154 * original_image[:,:,1] + 0.0721 * original_image[:,:,2]
@@ -149,7 +179,7 @@ def mask_generator(filename,seed):
     open_img = opening(contrast_img,4) #disk of radius 4 for opening
 
     #making operations on binary img
-    binary_img = treshold_binarization(open_img,174) #how can we define this threshold better?
+    binary_img = treshold_binarization(open_img,define_threshold(open_img,seed)) #174
     # we have some operations that can only be perfomed on the white area of the image
     invert_img = inversion(binary_img)
     disk = morp.disk(2)
@@ -181,62 +211,3 @@ def mask_generator(filename,seed):
     img.imwrite(filename + 'generated-mask.png', rgb_mask.astype(np.uint8))
 
     return rgb_mask
-
-
-# # Main
-# filename = str(input()).rstrip()
-# input_img = img.imread(filename)
-# brightness_parameter = int(input())  # 144
-#
-# bighter_img = brightness(input_img, brightness_parameter)
-# # plot_compare(input_img, bighter_img)
-#
-# contrast_img = contrast(bighter_img, 0, 255)
-# # plot_compare(bighter_img, contrast_img)
-#
-# modified_img = opening(contrast_img, 4)
-# # plot_compare(contrast_img, modified_img)
-#
-# binarie_image = treshold_binarization(modified_img, 174)
-# # plot_compare(modified_img, binarie_image)
-#
-# binarie_invert = inversion(binarie_image)
-# # plot_compare(binarie_image, binarie_invert)
-#
-# disk = morp.disk(2)
-# binarie_dilation = morp.dilation(binarie_invert, disk)
-# #plot_compare(binarie_invert, binarie_dilation)
-#
-# binarie_dilation_desinvert = inversion(binarie_dilation)
-# #plot_compare(binarie_dilation, binarie_dilation_desinvert)
-#
-# img_seed = np.zeros(input_img.shape)
-# region_growing_average(binarie_dilation_desinvert, img_seed, 0, [240, 200])
-# region_growing_average(binarie_dilation_desinvert, img_seed, 0, [282, 202])
-# plot_compare(binarie_dilation_desinvert, img_seed)
-#
-# # rectangle = morp.rectangle(12,1)
-# # mask = morp.dilation(img_seed,rectangle)
-# # plot_compare(img_seed, mask)
-#
-# img_seed = image_normalization(img_seed)
-# img.imwrite('maskagdv.png', img_seed.astype(np.uint8))
-#
-# ############################### FACE DETECTION ##############################
-# # Load the cascade
-# # face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-# # Read the input image
-# # img_cv2 = cv2.imread(filename)
-#
-# # Convert into grayscale
-# # gray = cv2.cvtColor(img_cv2, cv2.COLOR_BGR2GRAY)
-# # Detect faces
-# # faces = face_cascade.detectMultiScale(gray, 1.1, 4)
-# # Draw rectangle around the faces
-# # for (x, y, w, h) in faces:
-# # cv2.rectangle(img_cv2, (x, y), (x+w, y+h), (255, 0, 0), 2)
-# # Display the output
-# # print(faces)
-# # cv2.imshow('img', img_cv2)
-# # cv2.waitKey()
-# #############################################################################

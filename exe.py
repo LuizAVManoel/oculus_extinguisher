@@ -1,3 +1,16 @@
+# # # # # # # # # # #  HEADER  # # # # # # # # # # #
+#                                                  #
+#        STUDENT: Amanda Carrijo Viana Figur       #
+#                N. USP: 8937736                   #
+#        STUDENT: Luiz Augusto Vieira Manoel       #
+#                N. USP: 8937308                   #
+#   COURSE: Mestrado em Ciências de Computação e   #
+#        Matemática Computacional (PPG-CCMC)       #
+#            YEAR OF ENTRY: 2020/2019              #
+#                  FINAL PROJECT                   #
+#                                                  #
+# # # # # # # # # # # # # # # # # # # # # # # # # ##
+
 import imageio
 import inpanting_pyheal
 import mask_generator as masker
