@@ -29,7 +29,7 @@ def inpainting_popular(input_img, mask):
 			if mask[i,j,0] == 255:
 				inpainting_search(r, mask, i, j)
 
-	plot_compare(input_img, r)
+	return r
 
 def inpainting_search(input_img, mask, i, j):
 
@@ -50,7 +50,3 @@ def inpainting_search(input_img, mask, i, j):
 					inpainted = True
 
 		k += 1
-
-img = imageio.imread("gray-fidel.png")
-mask = imageio.imread("./images/mask.png")
-inpainting_popular(img, mask)

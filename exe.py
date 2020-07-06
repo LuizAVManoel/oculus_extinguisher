@@ -15,6 +15,25 @@ import imageio
 import inpanting_pyheal
 import mask_generator as masker
 
+# computes the error between the reference image r and the modified image m
+def calculo_erro(r, m):
+    # converts values to float
+    m = m.astype(np.float32)
+    r = r.astype(np.float32)
+
+    #calculates how many pixels image has
+    N, M = r[:,:,0].shape
+    T = N*M
+
+    # auxiliary matrix for computations
+    aux = np.subtract(m,r)
+    aux = np.power(aux, 2)
+    mean = np.divide(np.sum(aux),T)
+    RMSE = np.sqrt(mean)
+
+    # prits error with 4 decimal places and adjusts identation
+    print(f"{RMSE:.4f}", sep='', end='')
+
 '''
     Read inputs:
     "image to be inpainted filename"

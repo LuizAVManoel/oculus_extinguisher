@@ -138,7 +138,7 @@ def define_threshold(input_img, seed):
     x = seed[0]
     y = seed[1]
     oculus_region = input_img[x - 5: x + 5, y - 5: y + 5]
-    plot_compare(input_img,oculus_region)
+    # plot_compare(input_img,oculus_region)
 
     hist = histogram(oculus_region, 256)
     
@@ -174,7 +174,7 @@ def mask_generator(filename, seed):
         easily.
     '''
     brighter_img = brightness(grayscale_image,150) #144
-    plot_compare(grayscale_image,brighter_img)
+    # plot_compare(grayscale_image,brighter_img)
     contrast_img = contrast(brighter_img,0,255)
     open_img = opening(contrast_img,4) #disk of radius 4 for opening
 
@@ -186,7 +186,7 @@ def mask_generator(filename, seed):
     invert_img = morp.dilation(invert_img, disk)
     #the binary image again, with operations applyed
     binary_img = inversion(invert_img)
-    plot_compare(grayscale_image,binary_img)
+    # plot_compare(grayscale_image,binary_img)
 
     '''
         Now we are going to perform the image segmentation at the binary image. We need seeds
@@ -197,7 +197,7 @@ def mask_generator(filename, seed):
     region_growing_average(binary_img, img_seed, 0, seed)
     #region_growing_average(binary_img, img_seed, 0, [282, 202])
     #plots images
-    plot_compare(binary_img, img_seed)
+    # plot_compare(binary_img, img_seed)
 
     #normalizes the seed, so it has Grayscale values
     grayscale_mask = image_normalization(img_seed)
@@ -208,6 +208,7 @@ def mask_generator(filename, seed):
     rgb_mask[:,:,1] = grayscale_mask
     rgb_mask[:,:,2] = grayscale_mask
 
-    img.imwrite(filename + 'generated-mask.png', rgb_mask.astype(np.uint8))
+    # plot_compare(original_image, rgb_mask)
+    # img.imwrite(filename + 'generated-mask.png', rgb_mask.astype(np.uint8))
 
     return rgb_mask

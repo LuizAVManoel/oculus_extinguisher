@@ -248,10 +248,12 @@ def _inpaint_pixel(y, x, img, height, width, dists, flags, radius):
     return pixel_sum / weight_sum
 
 # main inpainting function
-def inpaint(img, mask, radius=5):
+def inpaint(original_img, mask, radius=5):
 
     #set all black pixels to 0 and white pixels to 1
     mask = mask[:, :, 0].astype(bool, copy=False)
+
+    img = original_img.copy()
 
     height, width = img.shape[0:2]
     dists, flags, band = _init(height, width, mask, radius)
@@ -297,3 +299,5 @@ def inpaint(img, mask, radius=5):
             flags[x_nb, y_nb] = BAND
             # push neighbor on band
             heapq.heappush(band, (nb_dist, x_nb, y_nb))
+
+    return img

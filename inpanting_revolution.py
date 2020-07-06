@@ -22,7 +22,7 @@ from plot_compare import plot_compare
 
 INF = 10000000000
 
-def inpainting_popular(input_img, mask):
+def inpainting_revolution(input_img, mask):
 
 	# TODO normalizar as imagens
 	N, M = input_img.shape[0:2]
@@ -32,7 +32,7 @@ def inpainting_popular(input_img, mask):
 			if mask[i,j,0] == 255:
 				inpainting_search(r, mask, i, j)
 
-	plot_compare(input_img, r)
+	return r
 
 def euclidian_distance(i, j, x, y):
 	return np.sqrt(((x - i) * (x - i)) + ((y - j) * (y - j)))
@@ -85,8 +85,3 @@ def inpainting_search(input_img, mask, i, j):
 			inpainted = True
 
 		k += 1
-
-img = imageio.imread("gray-fidel.png")
-mask = imageio.imread("gray-mask.png")
-# mask = imageio.imread("./images/mask.png")
-inpainting_popular(img, mask)
