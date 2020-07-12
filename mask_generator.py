@@ -137,28 +137,30 @@ def histogram(A, no_levels):
 def define_threshold(input_img, seed):
     x = seed[0]
     y = seed[1]
+    #generates a region of size 11 around seed pixel
     oculus_region = input_img[x - 5: x + 5, y - 5: y + 5]
-    # plot_compare(input_img,oculus_region)
 
+    #generates histogram of this subregion
     hist = histogram(oculus_region, 256)
-    
+
+    #finds lowest value of the image
     min_i = -1
     for i in range(0, len(hist)):
         if hist[i] != 0:
             min_i = i
             break
 
-    mean_i = (256 - min_i) // 2
+    mean_i = (256 - min_i) // 2 #calculates a subregion of the histogram
 
     max_hist = 0
     max_i = -1
+    #searchs most frequent midtone value
     for i in range(min_i + mean_i, 200):
         if hist[i] > max_hist:
             max_hist = hist[i]
             max_i = i
 
-
-    return max_i - 1
+    return max_i - 1 #returns most frequent midtone value
     
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                    THE MAIN FUNCTION                    #
@@ -173,31 +175,26 @@ def mask_generator(filename, seed):
         the contrast between the skin and the eyeglasses, so we can find the eyeglasses
         easily.
     '''
-    brighter_img = brightness(grayscale_image,150) #144
-    # plot_compare(grayscale_image,brighter_img)
+    brighter_img = brightness(grayscale_image,150)
     contrast_img = contrast(brighter_img,0,255)
     open_img = opening(contrast_img,4) #disk of radius 4 for opening
 
     #making operations on binary img
     binary_img = treshold_binarization(open_img,define_threshold(open_img,seed)) #174
-    # we have some operations that can only be perfomed on the white area of the image
+    #we have some operations that can only be perfomed on the white area of the image
     invert_img = inversion(binary_img)
     disk = morp.disk(2)
     invert_img = morp.dilation(invert_img, disk)
     #the binary image again, with operations applyed
     binary_img = inversion(invert_img)
-    # plot_compare(grayscale_image,binary_img)
 
     '''
         Now we are going to perform the image segmentation at the binary image. We need seeds
         and the final output should be the wanted eyeglasses mask.
     '''
     img_seed = np.zeros(grayscale_image.shape)  #the segmentations are saved here
-    #performs search using two seeds
-    region_growing_average(binary_img, img_seed, 0, seed)
-    #region_growing_average(binary_img, img_seed, 0, [282, 202])
-    #plots images
-    # plot_compare(binary_img, img_seed)
+    region_growing_average(binary_img, img_seed, 0, seed) #performs search using seed
+
 
     #normalizes the seed, so it has Grayscale values
     grayscale_mask = image_normalization(img_seed)
@@ -207,8 +204,5 @@ def mask_generator(filename, seed):
     rgb_mask[:,:,0] = grayscale_mask
     rgb_mask[:,:,1] = grayscale_mask
     rgb_mask[:,:,2] = grayscale_mask
-
-    # plot_compare(original_image, rgb_mask)
-    # img.imwrite(filename + 'generated-mask.png', rgb_mask.astype(np.uint8))
 
     return rgb_mask
