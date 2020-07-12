@@ -49,7 +49,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
  
 
 
-| <img src="/images/02-fidel-RGB-oculus.png" height="290" /> | <img src="/images/03-fidel-RGB-mask.png" height="290" /> |
+| <img src="/images/oculus_Fidel.png" height="290" /> | <img src="/images/manual_mask_Fidel.png" height="290" /> |
 |:--:|:--:|
 | The  image (with eyeglasses)<br/> going to be inpainted. | The mask. |
 
@@ -66,7 +66,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
     The algorithm will fill the mask (white) region with with a mean value based on the pixels directions and the "distance" related to the border and the values on each RGB channel. This is the Fast Marching Method. Bellow we show an output example:
 </li>
 
-| <img src="/images/01-fidel-RGB.png" height="290" /> | <img src="/images/01-fidel-RGB-inpainted2.png" height="290" /> | <img src="/images/02-fidel-RGB-oculus.png" height="290" /> |
+| <img src="/images/original_Fidel.png" height="290" /> | <img src="/images/inpainting_pyheal_manual_Fidel.png" height="290" /> | <img src="/images/oculus_Fidel.png" height="290" /> |
 |:--:|:--:|:--:|
 | The original image (without<br/>eyeglasses) for reference. | The output of the algorithm<br/>(the inpainted image). | The input of the algorithm. |
 
@@ -80,7 +80,7 @@ The algorithm will be implemented in `Python 3`. We used as main reference the <
 <ol>
 <li> We'll extract a mask from this image:</li>
 
-| <img src="/images/04-angela-RGB.png" height="290" /> |
+| <img src="/images/original_Angela.png" height="290" /> |
 |:--:|
 | The original image (with eyeglasses).<br/>Source: <a title="Angela" href="https://commons.wikimedia.org/wiki/File:Angela_Davis_%C3%A0_France_Culture_(Palais_de_Tokyo)_(8586327078).jpg" target="_blank" rel="noopener">Wikimedia</a> (altered) |
 
@@ -95,10 +95,8 @@ On the table bellow we show the details of each image we are going to use as inp
 
 | Image name | Image format | Dimensions | Color Model | Channel Size | Description |
 |:--:|:--:|:--:|:--:|:--:|:--:|
-| 01-fidel-RGB | .PNG | 436 x 458 | RGB | 8 bit | The original image without eyeglasses (for comparison) |
-| 01-fidel-RGB-inpainted | .PNG | 436 x 458 | RGB | 8 bit | The inpainted image with thinner mask |
-| 01-fidel-RGB-inpainted2 | .PNG | 436 x 458 | RGB | 8 bit | The inpainted image with thicker mask |
-| 02-fidel-RGB-oculus | .PNG | 436 x 458 | RGB | 8 bit | The input image with artificial eyeglasses |
-| 03-fidel-RGB-mask | .PNG | 436 x 458 | RGB | 8 bit | The thin eyeglasses mask |
-| 03-fidel-RGB-mask2 | .PNG | 436 x 458 | RGB | 8 bit | The thick eyeglasses mask |
-| 04-angela-RGB | .PNG | 436 x 458 | RGB | 8 bit | Angela Davis wearing eyeglasses |
+| original_Fidel | .PNG | 436 x 458 | RGB | 8 bit | The original image without eyeglasses (for comparison) |
+| inpainting_pyheal_manual_Fidel | .PNG | 436 x 458 | RGB | 8 bit | The inpainted Fidel image with manual mask |
+| oculus_Fidel | .PNG | 436 x 458 | RGB | 8 bit | The input Fidel image with artificial eyeglasses |
+| manual_mask_Fidel | .PNG | 436 x 458 | RGB | 8 bit | The manual eyeglasses mask |
+| original_Angela | .PNG | 436 x 458 | RGB | 8 bit | Angela Davis wearing eyeglasses |
