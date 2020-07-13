@@ -1,9 +1,9 @@
 # Final Project - Oculus Extinguisher
- SCC5830: Image processing, first semester of 2020 at University of São Paulo (USP)
+ SCC5830: Image processing, first semester of 2020 at University of São Paulo (USP), Brazil.
 
 **Students:**
-* Amanda Carrijo Viana Figur (8937736)
-* Luiz Augusto Vieira Manoel (8937308)
+* Amanda Carrijo Viana Figur (8937736) - <a href="https://github.com/mandafigura">Amanda GitHub profile</a>.
+* Luiz Augusto Vieira Manoel (8937308) - <a href="https://github.com/LuizAVManoel">Luiz GitHub profile</a>.
 
 ---
 
@@ -20,6 +20,8 @@ Inpainting; Faces; Mask; Extraction; Segmentation.
 ## Project Description
 
 The aim of this project is to "erase" the eyeglasses of photos by filling masked pixels from people's faces. We also implemented a program that generates such mask of pixels. Every code at this project is implemented using `Python 3`.
+
+**Link for a brief video explaining our work (in Portuguese):** https://youtu.be/5S9GbPym8l4
 
 **Example:**
 | Input Image | Aim Result |
